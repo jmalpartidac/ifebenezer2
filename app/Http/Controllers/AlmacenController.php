@@ -208,6 +208,7 @@ class AlmacenController extends Controller
         $modeloarticulo = new Articulo;
         $modelocategoria = new Categoria;
         $modelosubcategoria = new Subcategoria;
+        $modelounidadmedida = new Unidadmedida;
 
         $idarticulo = $request->input('idarticulo');
 
@@ -231,6 +232,7 @@ class AlmacenController extends Controller
 
         $idcategoria = $datos['idcategoria']   = $request->input('categoria');
         $idsubcategoria = $datos['idsubcategoria'] = $request->input('subcategoria');
+        $prefijo = $datos['prefijo'] = $request->input('unidaddemedida');
 
         $dataC = [
             ['idcategoria','=',$idcategoria]
@@ -240,16 +242,22 @@ class AlmacenController extends Controller
             ['idsubcategoria','=',$idsubcategoria]
         ];
 
+        $dataUm = [
+            ['prefijo', '=', $prefijo]
+        ];
+
         $consultaC = $modelocategoria->consultar($dataC);
-        $consultarSubCat = $modelosubcategoria->consultar($dataSc); 
+        $consultarSubCat = $modelosubcategoria->consultar($dataSc);
+        $consultaUnidadMedida = $modelounidadmedida->consultar($dataUm);
 
         $datos['categoria'] = $consultaC[0]->nombre;
         $datos['subcategoria'] = $consultarSubCat[0]->subcategoria;
-        $datos['unidaddemedida'] = $request->input('unidaddemedida');
+        $datos['unidaddemedida'] = $consultaUnidadMedida[0]->nombre;
         $datos['articulo']   = $request->input('articulo');
         $datos['marca']   = $request->input('marca');
         $datos['descripcion']   = $request->input('descripcion');
         
+        dd($datos);
 
          if (empty($idarticulo)){
             
