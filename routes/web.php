@@ -115,6 +115,9 @@
 			//ESTA RUTA PERMITE ELIMINAR UNIDAD DE MEDIDA
 			Route::get('eliminarunidadmedida/{idunidadmedida}','AlmacenController@deleteUnidaddemedida');
 
+		// ESTA RUTA MUESTRA LA VENTANA PRINCIPAL DEL MONDULO CLASIFICACION ABC
+		Route::get('clasificacionabc', "AlmacenController@mostrarClasificacionabc");
+
 // RUTAS PARA EL MODULO COMPRAS
 		Route::get('ingresoalma', "ComprasController@mostrarIngresoalmacen");
 

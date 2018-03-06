@@ -22,6 +22,10 @@ class AlmacenController extends Controller
         return view('almacen.nuevacategoria');
     }
 
+    public function mostrarClasificacionabc() {
+        return view('almacen.clasificacionabc');
+    }
+
     public function mostrarNuevasubcategoria(){
 
         $modelocategoria = new Categoria;

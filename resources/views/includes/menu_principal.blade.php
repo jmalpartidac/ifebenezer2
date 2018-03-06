@@ -39,6 +39,7 @@
                             <li><a href="{{ url('/') }}/categorias"> Categorias</a></li>
                             <li><a href="{{ url('/') }}/subcategorias"> Sub. Categorias</a></li>
                             <li><a href="{{ url('/') }}/unidadesdemedida"> Unidades de Medida</a></li>
+                            <li><a href="{{ url('/') }}/clasificacionabc"> Clasificación ABC</a></li>
                         </ul>
                     </li>
                     <li class="menu-list">
