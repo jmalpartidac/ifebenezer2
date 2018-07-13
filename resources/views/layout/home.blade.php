@@ -2,6 +2,7 @@
 <html lang="en">
 <!-- head content start-->
 @include('includes.head')
+@yield('cabecera')
 <!-- head content end-->
 <body class="sticky-header sidebar-collapsed">
     <section>

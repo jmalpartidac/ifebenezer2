@@ -39,7 +39,6 @@
                             <li><a href="{{ url('/') }}/categorias"> Categorias</a></li>
                             <li><a href="{{ url('/') }}/subcategorias"> Sub. Categorias</a></li>
                             <li><a href="{{ url('/') }}/unidadesdemedida"> Unidades de Medida</a></li>
-                            <li><a href="{{ url('/') }}/clasificacionabc"> Clasificación ABC</a></li>
                         </ul>
                     </li>
                     <li class="menu-list">
@@ -60,6 +59,19 @@
                             <li><a href="{{ url('/') }}/confcomprobantes"> Config Comprobantes</a></li>
                         </ul>
                     </li>
+
+                    <li class="menu-list">
+                        <a href=""><i class="fa fa-cubes"></i><span> Clasificación ABC</span></a>
+                        <ul class="child-list">
+                            <li><a href="{{ url('/') }}/forma1"> Por Precio Unitario</a></li>
+                            <li><a href="{{ url('/') }}/forma2"> Por Valor Total</a></li>
+                            <li><a href="{{ url('/') }}/forma3"> Por Utilización y Valor</a></li>
+                            <li><a href="{{ url('/') }}/promedio"> Promedio</a></li>
+                        </ul>
+                    </li>
+
+
+
                     <li class="menu-list">
                         <a href=""><i class="fa fa-tasks"></i><span> Consultar Compras</span></a>
                         <ul class="child-list">

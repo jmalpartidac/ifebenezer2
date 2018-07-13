@@ -61,4 +61,9 @@ class Venta extends Model
         $sql = "CALL sp_mantendedorVenta(1,".$idventa.")";
         return DB::select($sql);
     }
+
+    public function consultarVenta($opcion,$idventa) {
+        $sql = "CALL sp_consultarVenta(".$opcion.",".$idventa.")";
+        return DB::select($sql);
+    }
 }

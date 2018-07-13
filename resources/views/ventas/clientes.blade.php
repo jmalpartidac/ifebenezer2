@@ -43,7 +43,7 @@
                             <td class="hidden-xs"><?php echo $cliente->cliente; ?></td>
                             <td class="hidden-xs"><?php echo $cliente->tipodocumento; ?></td>
                             <td class="hidden-xs"><?php echo $cliente->documento; ?></td>
-                            <td class="hidden-xs"><?php echo $cliente->direccion; ?></td>
+                            <td class="hidden-xs"><?php echo $cliente->calle; ?></td>
                             <td class="hidden-xs"><?php echo $cliente->email; ?></td>
                             <td class="hidden-xs"><?php echo $cliente->telefono; ?></td>
                             <td class="hidden-xs">

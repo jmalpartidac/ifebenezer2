@@ -97,11 +97,19 @@
 <script src="{{ asset('js/select2-init.js') }}"></script>
 
 <!--Morris Chart-->
-<script src="js/morris-chart/morris.js"></script>
-<script src="js/morris-chart/raphael-min.js"></script>
+<script src="{{ asset('js/morris-chart/morris.js') }}"></script>
+<script src="{{ asset('js/morris-chart/raphael-min.js') }}"></script>
 
 <!--morris chart initialization-->
-<script src="js/morris-init.js"></script>
+<script src="{{ asset('js/morris-init.js') }}"></script>
+
+<!--switchery-->
+<script src="{{ asset('js/switchery/switchery.min.js') }}"></script>
+<script src="{{ asset('js/switchery/switchery-init.js') }}"></script>
+
+<!--Sparkline Chart-->
+<script src="{{ asset('js/sparkline/jquery.sparkline.js') }}"></script>
+<script src="{{ asset('js/sparkline/sparkline-init.js') }}"></script>
 
 <!--toastr  para mostrar mensajes de confirmacion-->
 

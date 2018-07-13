@@ -115,8 +115,15 @@
 			//ESTA RUTA PERMITE ELIMINAR UNIDAD DE MEDIDA
 			Route::get('eliminarunidadmedida/{idunidadmedida}','AlmacenController@deleteUnidaddemedida');
 
-		// ESTA RUTA MUESTRA LA VENTANA PRINCIPAL DEL MONDULO CLASIFICACION ABC
-		Route::get('clasificacionabc', "AlmacenController@mostrarClasificacionabc");
+
+		// ESTA RUTA MUESTRA LA VENTANA PRINCIPAL DEL MONDULO CLASIFICACION ABC forma1
+		Route::get('forma1', "AlmacenController@ClasificarForma1");
+
+		Route::get('forma2', "AlmacenController@ClasificarForma2");
+
+		Route::get('forma3', "AlmacenController@ClasificarForma3");
+
+		Route::get('promedio', "AlmacenController@Promedio");
 
 // RUTAS PARA EL MODULO COMPRAS
 		Route::get('ingresoalma', "ComprasController@mostrarIngresoalmacen");
@@ -169,6 +176,7 @@
 			Route::get('eliminararticuloseleccionadoenventa/{idartxdocven}/{idventa?}','VentasController@deleteArticuloseleccionadoenventa');
 			//ESTA RUTA PERMITE CONFIRMAR VENTA
 			Route::get('confirmarventa/{idventa}','VentasController@confirmarVenta');
+			Route::get('imprimirboleta/{idventa}','VentasController@imprimirboleta');
 
 		// ESTA RUTA MUESTRA LA VENTANA PRINCIPAL DE PEDIDOS
 		Route::get('pedidos', "VentasController@mostrarPedido");

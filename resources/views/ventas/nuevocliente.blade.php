@@ -30,15 +30,7 @@
                             @endif
                             type="text" class="form-control" name="nombre" placeholder="Ingrese Nombres" required>
                         </div>
-                        <div class="form-group col-lg-6">
-                            <label >Apellidos</label>
-                            <input 
-                            @if (isset($clientesC))
-                            value="{{ $clientesC[0]->apellido }}" 
-                            @endif
-                            type="text" class="form-control" name="apellido" placeholder="Ingrese Apellidos" required>
-                        </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-3">
                             <label >Tipo de Documento</label>
                             <select class="form-control select2" placeholder="Seleccione" name="tipdoc" required>
                                 @if (isset($clientesC))
@@ -61,7 +53,7 @@
                                     @endif
                             </select>
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-3">
                             <label >Documento</label>
                             <input 
                             @if (isset($clientesC))
@@ -77,7 +69,7 @@
                             @endif
                             type="text" class="form-control" name="telefono" placeholder="Ingrese Telefono" required>
                         </div>
-                        <div class="form-group col-lg-8">
+                        <div class="form-group col-lg-4">
                             <label >Email</label>
                             <input 
                             @if (isset($clientesC))

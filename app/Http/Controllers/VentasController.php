@@ -269,8 +269,7 @@ class VentasController extends Controller{
         $idcliente = $request->input('idcliente');
 
         $nombre = $datos['nombre'] = $request->input('nombre');
-        $apellido = $datos['apellido'] = $request->input('apellido');
-        $datos['cliente'] = $nombre ." ". $apellido;
+        $datos['cliente'] = $nombre;
         $datos['tipodocumento'] = $request->input('tipdoc');
         $datos['documento'] = $request->input('documento');
         $datos['email'] = $request->input('email');
@@ -885,12 +884,26 @@ class VentasController extends Controller{
         if ($contador == 0){
             Session::put('flg_msj','Se realizo la Venta con Exito');
             Session::put('flg_tipo','1');
+            Session::put('flg_imprimirboleta','1');
+            Session::put('flg_imprimirboleta_id',$idventa);
             return redirect('ventas');
         }else{
 
             $data['stockinsuficiente'] =  $consulta;
             return view('ventas.stockinsuficiente')->with($data);
         }  
+    }
+
+    public function imprimirboleta($idventa){
+        $modeloventa = new Venta;
+        $venta = $modeloventa->consultarVenta(1,$idventa);
+        $productos = $modeloventa->consultarVenta(2,$idventa);
+
+        $data['venta'] =  $venta;
+        $data['lista'] =  $productos;
+       // dd($data);exit;
+        return view('ventas.formatoboleta')->with($data);
+
     }
 
     public function confirmarPedido($idpedido){

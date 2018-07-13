@@ -28,10 +28,16 @@
 
     <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
 
+    <!--right slidebar-->
+    <link href="{{ asset('css/slidebars.css') }}" rel="stylesheet">
 
+    <!--switchery-->
+    <link href="{{ asset('js/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
+    
     <!--common style-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/print-invoice.css') }}" rel="stylesheet" media="print">
 
      <!--bootstrap-fileinput-master-->
     <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap-fileinput-master/css/fileinput.css') }}" />
@@ -56,15 +62,6 @@
 
     <!--toastr-->
     <link href="{{ asset('js/toastr-master/toastr.css') }}" rel="stylesheet" type="text/css" />
-    
-    <!-- Base Styles -->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
 
     <!-- Placed js at the end of the document so the pages load faster -->
     <script src="{{ asset('js/jquery-1.10.2.min.js') }}"></script>

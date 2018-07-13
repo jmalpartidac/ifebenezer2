@@ -22,8 +22,119 @@ class AlmacenController extends Controller
         return view('almacen.nuevacategoria');
     }
 
-    public function mostrarClasificacionabc() {
-        return view('almacen.clasificacionabc');
+    public function ClasificarForma1(Request $request){
+
+        $modeloarticulo = new Articulo;
+
+        $opcion = 1;
+        $fechainicio = $request->input('fechaini');
+        $fechafin = $request->input('fechafin');
+
+        if ($fechainicio == "" || $fechafin == ""){
+            $consulta = array();
+        }else{
+            $datos['valor01'] = $opcion;
+            $datos['valor02'] = $fechainicio;
+            $datos['valor03'] = $fechafin;
+            $datos['valor04'] = 0;
+            $datos['valor05'] = 0;
+
+            $consulta = $modeloarticulo->consultarData($datos);
+        }
+        $data['clasificacion'] = $consulta;
+
+        return view('clasificacion.forma1')->with($data);
+
+    }
+
+    public function ClasificarForma2(Request $request){
+
+        $modeloarticulo = new Articulo;
+
+        $opcion = 2;
+        $fechainicio = $request->input('fechaini');
+        $fechafin = $request->input('fechafin');
+        $pclaseA = $request->input('pora');
+        $pclaseB = $request->input('porb');
+
+        if ($fechainicio == "" || $fechafin == ""){
+            $consulta = array();
+        }else{
+
+            $datos['valor01'] = $opcion;
+            $datos['valor02'] = $fechainicio;
+            $datos['valor03'] = $fechafin;
+
+            if ($pclaseA == '') {
+                $datos['valor04'] = 0;
+            }else {
+                $datos['valor04'] = $pclaseA / 100;
+            }
+
+            if ($pclaseB == '') {
+                $datos['valor05'] = 0;
+            }else {
+                $datos['valor05'] = $pclaseB / 100;
+            }
+
+            $consulta = $modeloarticulo->consultarData($datos);
+        }
+        $data['clasificacion'] = $consulta;
+
+        return view('clasificacion.forma2')->with($data);
+
+    }
+
+    public function ClasificarForma3(Request $request){
+
+        $modeloarticulo = new Articulo;
+
+        $opcion = 3;
+        $fechainicio = $request->input('fechaini');
+        $fechafin = $request->input('fechafin');
+        $pclaseA = 0;
+        $pclaseB = 0;
+
+        $datos['valor01'] = $opcion;
+        $datos['valor02'] = $fechainicio;
+        $datos['valor03'] = $fechafin;
+        
+        if ($pclaseA == '') {
+            $datos['valor04'] = 0;
+        }else {
+            $datos['valor04'] = $pclaseA / 100;
+        }
+
+        if ($pclaseB == '') {
+            $datos['valor05'] = 0;
+        }else {
+            $datos['valor05'] = $pclaseB / 100;
+        }
+
+        $consulta = $modeloarticulo->consultarData($datos);
+        $data['clasificacion'] = $consulta;
+
+        return view('clasificacion.forma3')->with($data);
+
+    }
+
+    public function Promedio(Request $request){
+
+        $modeloarticulo = new Articulo;
+
+        $opcion = 4;
+
+        $datos['valor01'] = $opcion;
+        $datos['valor02'] = 0;
+        $datos['valor03'] = 0;
+        $datos['valor04'] = 0;
+        $datos['valor05'] = 0;
+
+        $consulta = $modeloarticulo->consultarData($datos);
+        $data['clasificacion'] = $consulta;
+
+        return view('clasificacion.promedio')->with($data);
+
     }
 
     public function mostrarNuevasubcategoria(){

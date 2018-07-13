@@ -57,4 +57,14 @@ class Articulo extends Model
             ->update($datos);
         return true;
     }
+
+    public function consultarData($datos) {
+
+        $parametros = "'".implode("', '", $datos)."'";
+        $consultaForma = "CALL sp_AlmacenConsultar(".$parametros.")";
+        //echo $consultaForma;exit;
+        $resultadoForma = DB::select($consultaForma);
+        return $resultadoForma;
+    }
+
 }

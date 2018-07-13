@@ -2,7 +2,7 @@
 @section('contenido')
 
 <script type="text/javascript">
-
+   
     function myFunction(id) {
         var url = '{{ url('/') }}/eliminarventa/'+id;
         $('#eliminar').attr('href',url);
@@ -15,6 +15,12 @@
         $('#myModal2').modal('show');
     }
 
+    function imprimirBoleta(id) {
+        var url = '{{ url('/') }}/imprimirboleta/'+id;
+        $('#confirmar04').attr('href',url);
+        $('#myModal4').modal('show');
+    }
+
     function habilitar(sel){
 
       if (sel.value=="Credito"){
@@ -25,6 +31,17 @@
            $("#contenedorcuotas").css('display','none');
       }
     }
+    $(document).ready(function(){
+         @if (Session::has('flg_imprimirboleta'))
+            @if (Session::get('flg_imprimirboleta') == "1")
+                var id = '{{Session::get("flg_imprimirboleta_id")}}';
+                $('#myModal4').modal('hide');
+                imprimirBoleta(id);
+            @endif
+            {{Session::forget("flg_imprimirboleta")}}
+            {{Session::forget("flg_imprimirboleta_id")}}
+        @endif
+    });
 
 </script>
 
@@ -88,6 +105,7 @@
                                 ><i class="fa fa-check"></i></a>
                                 <a href="{{ url('/') }}/editarventa/<?php echo $venta->idventa; ?>" class="btn btn-info btn-xs" style="background-color: #dcdcdc; border-color: #dcdcdc; color: #000000;"><i class="fa fa-eye"></i></a>
                                 <a href="javascript:;" onclick="myFunction('<?php echo $venta->idventa; ?>')" class="btn btn-danger btn-xs" ><i class="fa fa-trash-o "></i></a>
+                                <a href="javascript:;" onclick="imprimirBoleta('<?php echo $venta->idventa; ?>')" class="btn btn-danger btn-xs" ><i class="fa fa-print "></i></a>
                             </td>
                         </tr>
                     <?php
@@ -143,6 +161,24 @@
                         </div>
                     </div>
                     <!-- modal -->
+
+                    <div class="modal fade  " id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background: #041626; border-bottom: 5px solid #6e6e6e;     color: #ffffff;">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Confirmación</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h5>Desea imprimir comprobante de Pago ?</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <a id="confirmar04" href="javascript:;" target="_blank" class="btn btn-success"> Si</a>
+                                    <a href="#" class="btn btn-danger" onclick="$('#myModal4').modal('hide')"> No</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </tbody>
                 </table>
             </section>
